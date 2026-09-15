@@ -16,7 +16,7 @@
                     <li class="nav-item">
                         <a class="nav-link{% if page.url == '/' %} active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
                     </li>
-                    {%- assign actual_essays = site.essay | where_exp: "item", "item.title and item.order" -%}
+                    {%- assign actual_essays = site.essay | where_exp: "item", "item.title" | where_exp: "item", "item.order -%}
                     {%- assign essay_count = actual_essays.size -%}
                     {% unless site.data.theme.show-contents-nav or essay_count == 1 %}
                     <li class="nav-item">
